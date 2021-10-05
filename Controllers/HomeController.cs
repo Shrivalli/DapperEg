@@ -57,7 +57,7 @@ namespace DapperEg.Controllers
             var dbPara = new DynamicParameters();
             dbPara.Add("Id", data.Id);
             dbPara.Add("Name", data.Name, DbType.String);
-
+            dbPara.Add("Age", data.Age, DbType.Int32);
             int updateArticle = await Task.FromResult(_dapper.Update<int>("[dbo].[SP_Update_Article]",
                             dbPara,
                             commandType: CommandType.StoredProcedure));
